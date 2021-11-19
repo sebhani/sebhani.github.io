@@ -1,10 +1,18 @@
 <html>
   <head>
+      <style>
+          canvas {border-style: solid;
+                    margin-top: 20;
+                    transition: 300ms linear;
+                }
+      </style>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
     <script src="boylesLaw.js"></script>
-    <!-- <script src="sketch.js"></script> -->
+    <script src="sketch.js"></script>
     <script>
         function updateSlidersValues(slideVal, isPressureSlider) {
+            resizeCylinder(baseCanvasWidth*points[slideVal].sizeRatio);
+            
             setTimeout(() => {
             //updating pressure and volume values
             document.getElementById("final_pressure_value").innerHTML = points[slideVal].p;
@@ -20,9 +28,9 @@
             }, 400);
         }
         
-        function windowResized() {
-                resizeCanvas(500, 200);
-            }
+        function resizeCylinder(newWidth) {
+                resizeCanvas(newWidth, 300);
+        }
     </script>
   </head>
   <body>

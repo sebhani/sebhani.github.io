@@ -52,8 +52,8 @@ class Ball {
   let balls = [];
   
   function setup() {
-    createCanvas(400, 400);
-    for (i = 0; i < 5; i++) {
+    createCanvas(450, 300);
+    for (i = 0; i < 10; i++) {
       balls.push(new Ball(
         createVector(random(width),random(height)),
         p5.Vector.random2D().mult(random(10)),
