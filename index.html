@@ -55,12 +55,14 @@
         <div>
             <p>P<sub>i</sub> = 101.325KPa</p>
             <p>V<sub>i</sub> = 0.003m<sup>3</sup></p>
+            <p>T<sub>i</sub> = 298K</p>
         </div>
-        <div style="width:250px; float:right; margin-top:-9%">
+        <div style="width:275px; float:right; margin-top:-16%">
             <input type="range" id="final_pressure" min="0" max="6" value="2" step="1" oninput="updateSlidersValues(this.value, true)">
             <label for="final_pressure">P<sub>f</sub> = <span id="final_pressure_value">101.325</span>KPa </label>
             <input type="range" id="final_volume" min="0" max="6" value="2" step="1" oninput="updateSlidersValues(this.value, false)">
             <label for="final_volume">V<sub>f</sub> = <span id="final_volume_value">0.003</span>m<sup>3</sup> </label>
+            <p>T<sub>f</sub> = 298K</p>
         </div>
     </div>    
     <main></main>
