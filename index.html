@@ -1,9 +1,26 @@
 <html>
   <head>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+    <script src="boylesLaw.js"></script>
     <!-- <script src="sketch.js"></script> -->
     <script>
-          function windowResized() {
+        function updateSlidersValues(slideVal, isPressureSlider) {
+            setTimeout(() => {
+            //updating pressure and volume values
+            document.getElementById("final_pressure_value").innerHTML = points[slideVal].p;
+            document.getElementById("final_volume_value").innerHTML = points[slideVal].v;
+            
+            //change slide of the opposite
+            if(isPressureSlider){//pressure slider changed
+                document.getElementById("final_volume").value = slideVal;
+            }else{//volume slider changed
+                document.getElementById("final_pressure").value = slideVal;
+            }
+
+            }, 400);
+        }
+        
+        function windowResized() {
                 resizeCanvas(500, 200);
             }
     </script>
@@ -15,10 +32,10 @@
             <p>V<sub>i</sub> = 0.003m<sup>3</sup></p>
         </div>
         <div style="width:250px; float:right; margin-top: 3.6%;">
-            <input type="range" id="final_pressure" name="final_pressure" min="0" max="100" value="90" step="10">
-            <label for="final_pressure">P<sub>f</sub> = </label>
-            <input type="range" id="final_volume" name="final_volume" min="0" max="100" value="90" step="10" style="margin-top: 17;">
-            <label for="final_volume">V<sub>f</sub> = </label>
+            <input type="range" id="final_pressure" min="0" max="6" value="2" step="1" oninput="updateSlidersValues(this.value, true)">
+            <label for="final_pressure">P<sub>f</sub> = <span id="final_pressure_value"></span> </label>
+            <input type="range" id="final_volume" min="0" max="6" value="2" step="1" oninput="updateSlidersValues(this.value, false)" style="margin-top: 17;">
+            <label for="final_volume">V<sub>f</sub> = <span id="final_volume_value"></span> </label>
         </div>
     </div>
 
