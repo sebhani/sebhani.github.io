@@ -53,12 +53,13 @@ class Ball {
   
   function setup() {
     createCanvas(450, 300);
+  
     for (i = 0; i < 10; i++) {
       balls.push(new Ball(
         createVector(random(width),random(height)),
         p5.Vector.random2D().mult(random(10)),
         30,
-        color(random(255),random(255),random(255))
+        color(235, 229, 61)
       ));
     }
   }
