@@ -65,7 +65,7 @@ class Ball {
   }
   
   function draw() {
-    background(255);
+    background(182, 200, 224);
     
     for(let i = 0; i < balls.length; i++) {
       for(let j = 0; j < i; j++) {
