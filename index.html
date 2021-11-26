@@ -35,7 +35,22 @@
               height: 105;
           }
 
+          .btn {
+            background-color: DodgerBlue;
+            border: none;
+            color: white;
+            padding: 16px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+          }
+
+          /* Darker background on mouse-over */
+          .btn:hover {
+            background-color: RoyalBlue;
+          }
       </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="AboutBtnStyling.css">
     <link rel="stylesheet" href="CandleStyling.css">
     <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
@@ -63,6 +78,15 @@
         function resizeCylinder(newWidth) {
                 resizeCanvas(newWidth, 300);
         }
+
+        function showExplanationVideo() {
+          var x = document.getElementById("vid_explanation");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+        }
     </script>
   </head>
   <body>
@@ -70,20 +94,26 @@
         <h1>Boyle's Law</h1>
         <button class="glow-on-hover" type="button">ABOUT</button>
     </div>
+
     
+
     <div id="main-div">
-        <div>
-            <p>P<sub>i</sub> = 101.325KPa</p>
-            <p>V<sub>i</sub> = 0.003m<sup>3</sup></p>
-            <p>T<sub>i</sub> = 298K</p>
-        </div>
-        <div style="width:275px; float:right; margin-top:-16%">
-            <input type="range" id="final_pressure" min="0" max="6" value="2" step="1" oninput="updateSlidersValues(this.value, true)">
-            <label for="final_pressure">P<sub>f</sub> = <span id="final_pressure_value">101.325</span>KPa </label>
-            <input type="range" id="final_volume" min="0" max="6" value="2" step="1" oninput="updateSlidersValues(this.value, false)">
-            <label for="final_volume">V<sub>f</sub> = <span id="final_volume_value">0.003</span>m<sup>3</sup> </label>
-            <p>T<sub>f</sub> = 298K</p>
-        </div>
+      <button onclick="showExplanationVideo()" style="margin-left: -150%; margin-top: 3.5%; float:left;"class="btn"><i class="fa fa-info-circle"></i> Learn More About Boyle's Law</button>
+
+      <iframe id="vid_explanation" style="margin-left:-150%; margin-top:35%; float:left; display: none;" width="600" height="355" src="https://www.youtube.com/embed/WLG1CNpqSLE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      
+      <div>
+          <p>P<sub>i</sub> = 101.325KPa</p>
+          <p>V<sub>i</sub> = 0.003m<sup>3</sup></p>
+          <p>T<sub>i</sub> = 298K</p>
+      </div>
+      <div style="width:275px; float:right; margin-top:-16%">
+          <input type="range" id="final_pressure" min="0" max="6" value="2" step="1" oninput="updateSlidersValues(this.value, true)">
+          <label for="final_pressure">P<sub>f</sub> = <span id="final_pressure_value">101.325</span>KPa </label>
+          <input type="range" id="final_volume" min="0" max="6" value="2" step="1" oninput="updateSlidersValues(this.value, false)">
+          <label for="final_volume">V<sub>f</sub> = <span id="final_volume_value">0.003</span>m<sup>3</sup> </label>
+          <p>T<sub>f</sub> = 298K</p>
+      </div>
     </div>    
     
     <main></main>
