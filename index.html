@@ -35,6 +35,7 @@
               height: 105;
           }
 
+          /* ABOUT button */
           .btn {
             background-color: DodgerBlue;
             border: none;
@@ -49,6 +50,12 @@
           .btn:hover {
             background-color: RoyalBlue;
           }
+
+          /* ABOUT Alert */
+          .swal2-popup {
+            width: 43em !important;
+            font-size: 1.6rem !important;
+          }
       </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="AboutBtnStyling.css">
@@ -56,6 +63,9 @@
     <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
     <script src="boylesLaw.js"></script>
     <script src="sketch.js"></script>
+    <!-- ABOUT Alert (SweetAlert2) -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
     <script>
         function updateSlidersValues(slideVal, isPressureSlider) {
             resizeCylinder(baseCanvasWidth*points[slideVal].sizeRatio);
@@ -79,6 +89,7 @@
                 resizeCanvas(newWidth, 300);
         }
 
+        //for "Learn More About Boyle's Law" button
         function showExplanationVideo() {
           var x = document.getElementById("vid_explanation");
           if (x.style.display === "none") {
@@ -87,12 +98,23 @@
             x.style.display = "none";
           }
         }
+
+        //for "ABOUT" button
+        function aboutAlert(){
+              var msg = "This is a project done for Thermodynamics 1, ENGR251<br>"+
+               "The website is developed by Hani Sabsoob, ID#: 40040900<br>"+
+               "The explanation video is recorded by Mark Al Maarwai - ID#: 40132068";
+
+              Swal.fire({icon: 'info',
+                        title: 'ABOUT',
+                        html: msg});
+        }
     </script>
   </head>
   <body>
     <div id="header">
         <h1>Boyle's Law</h1>
-        <button class="glow-on-hover" type="button">ABOUT</button>
+        <button onclick="aboutAlert()" class="glow-on-hover" type="button">ABOUT</button>
     </div>
 
     
@@ -126,8 +148,5 @@
           <div class="flame"></div>
         </div>
     </div>
-      
-<!--
-      <input type="button" onclick="windowResized()" value="Resize">-->
   </body>
 </html>
